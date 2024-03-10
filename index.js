@@ -211,9 +211,7 @@ async function main() {
   }
 }
 
-// server.use('/products',productRouter.router)
 
-// server.post('/product',createProduct)
 
 server.listen(process.env.PORT, () => {
   console.log("server started");
