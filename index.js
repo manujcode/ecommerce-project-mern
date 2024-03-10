@@ -7,7 +7,6 @@ const mongoose = require("mongoose");
 const server = express();
 const cors = require("cors");
 server.use(cors({ exposedHeaders: ["X-Total-Count"] }));
-// const createProduct= require('./models/Product.js')
 const productRouter = require("./routes/Products.js");
 const categoryRouter = require("./routes/Category.js");
 const brandsRouter = require("./routes/Brand.js");
@@ -25,7 +24,6 @@ const cookieParser = require("cookie-parser");
 const { Order } = require("./model/Orders.js");
 const path = require("path");
 
-// const token = jwt.sign({ foo: "bar" }, SECRET_KEY);
 const opts = {};
 opts.jwtFromRequest = cookieExtractor;
 opts.secretOrKey = process.env.SECRET_KEY;
@@ -34,25 +32,7 @@ opts.secretOrKey = process.env.SECRET_KEY;
 const stripe = require("stripe")(process.env.STRIPE_SECRETE);
 
 
-// server.post("/create-payment-intent", async (req, res) => {
-//   // const {totalAmount} = req.body
-//   // Create a PaymentIntent with the order amount and currency
-//   const paymentIntent = await stripe.paymentIntents.create({
 
-//     amount: 112,
-//     currency: "inr",
-//     description: 'Software development services',
-    
-//     automatic_payment_methods: {
-//       enabled: true, 
-//     },
-//   });
- 
-
-//   res.send({
-//     clientSecret: paymentIntent.client_secret,
-//   });
-// });
 
 
 
@@ -170,8 +150,9 @@ server.use(express.json());
     res.status(500).send({ error: "An error occurred while creating payment intent." });
   }
 });
-//webhook              "whsec_6cadf1fa8f0400fcd3891864afab6220a8b22d1ebd687acb43151dd0083e7ceb"
-const endpointSecret = "process.env.ENDPOINT_SECRETE";
+//webhook   
+
+const endpointSecret = process.env.ENDPOINT_SECRETE
 
 
 
