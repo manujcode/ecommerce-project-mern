@@ -23,10 +23,6 @@ const { isAuth, sanitizeUser, cookieExtractor } = require("./service/comman.js")
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 const { Order } = require("./model/Orders.js");
-<<<<<<< HEAD
-const { buffer } = require("stream/consumers");
-=======
->>>>>>> bf149af (fiNAL COMMIT)
 const path = require("path");
 
 // const token = jwt.sign({ foo: "bar" }, SECRET_KEY);
